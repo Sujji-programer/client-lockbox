@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * ClientLockbox — premium design tokens.
+ * Light  = elegant off-white / warm gray.
+ * Dark   = deep slate / charcoal with indigo accent.
+ * Typography: Inter, with system fallbacks for offline / prefont.
+ */
+
+@layer base {
+  :root {
+    /* surfaces */
+    --background:        210 40% 99%;
+    --foreground:        222 47% 11%;
+
+    --card:              0 0% 100%;
+    --card-foreground:   222 47% 11%;
+    --card-elevated:     210 40% 98%;
+
+    --popover:           0 0% 100%;
+    --popover-foreground:222 47% 11%;
+
+    --primary:           243 75% 59%;      /* indigo-500 family */
+    --primary-foreground:0 0% 100%;
+
+    --secondary:         222 18% 96%;
+    --secondary-foreground:222 30% 20%;
+
+    --muted:             210 20% 96%;
+    --muted-foreground:  215 16% 47%;      /* elegant slate gray */
+
+    --accent:            222 18% 94%;
+    --accent-foreground: 222 30% 20%;
+
+    --destructive:       0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success:           152 60% 42%;
+    --success-foreground: 0 0% 100%;
+
+    --warning:           38 92% 50%;
+    --warning-foreground: 30 50% 12%;
+
+    --border:            220 18% 91%;
+    --input:             220 18% 90%;
+    --ring:              243 75% 59%;
+
+    --chart-1: 243 75% 59%;
+    --chart-2: 152 60% 42%;
+    --chart-3: 217 91% 60%;
+    --chart-4: 38 92% 50%;
+    --chart-5: 280 65% 60%;
+
+    --radius: 0.75rem;
+
+    /* Subtle backdrop glow (used by marketing + dashboard header) */
+    --glow-from: 243 75% 59%;
+  }
+
+  .dark {
+    /* surfaces — deep slate/charcoal */
+    --background:        222 47% 7%;
+    --foreground:        210 40% 98%;
+
+    --card:              222 42% 10%;
+    --card-foreground:   210 40% 98%;
+    --card-elevated:     222 42% 13%;
+
+    --popover:           222 42% 9%;
+    --popover-foreground:210 40% 98%;
+
+    --primary:           245 80% 67%;
+    --primary-foreground:222 47% 8%;
+
+    --secondary:         222 30% 16%;
+    --secondary-foreground:210 40% 96%;
+
+    --muted:             222 30% 16%;
+    --muted-foreground:  215 19% 65%;
+
+    --accent:            222 30% 18%;
+    --accent-foreground: 210 40% 96%;
+
+    --destructive:       0 70% 50%;
+    --destructive-foreground:0 0% 100%;
+
+    --success:           152 55% 50%;
+    --success-foreground:222 47% 8%;
+
+    --warning:           38 92% 55%;
+    --warning-foreground: 30 50% 8%;
+
+    --border:            222 30% 18%;
+    --input:             222 30% 20%;
+    --ring:              245 80% 67%;
+
+    --glow-from: 245 80% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+    text-rendering: optimizeLegibility;
+  }
+  /* Elegant focus ring shared across all interactive things */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  /* Floating frosted card — used by client portal + dashboard surfaces */
+  .surface {
+    @apply rounded-2xl border border-border bg-card text-card-foreground shadow-lg
+           shadow-slate-900/[0.04] backdrop-blur-sm
+           dark:border-white/[0.06] dark:shadow-black/[0.35];
+  }
+  .surface-elevated {
+    @apply surface bg-[hsl(var(--card-elevated))];
+  }
+
+  /* Primary CTA — soft hover lift + glow */
+  .btn-primary-glow {
+    @apply rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground
+           shadow-md shadow-primary/30 transition-all duration-200
+           hover:-translate-y-[1px] hover:shadow-lg hover:shadow-primary/40
+           active:translate-y-0 active:shadow-sm
+           disabled:translate-y-0 disabled:opacity-60;
+  }
+
+  /* Animated check for success states */
+  .checkmark-ring {
+    @apply inline-grid place-items-center rounded-full bg-success/15 text-success;
+    animation: scale-in 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+/* ───────── Shimmer skeleton (loading states) ───────── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--muted)) 0%,
+    hsl(var(--muted) / 0.55) 50%,
+    hsl(var(--muted)) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+/* ───────── Keyframes ───────── */
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+@keyframes scale-in {
+  0%   { transform: scale(0.6); opacity: 0; }
+  60%  { transform: scale(1.04); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes slide-up-sheet {
+  from { transform: translateY(16px); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}
+
+.animate-fade-in     { animation: fade-in 320ms ease-out both; }
+.animate-slide-up-sheet { animation: slide-up-sheet 280ms cubic-bezier(0.22,1,0.36,1) both; }
+
+/* Reduced-motion users: keep the layout but skip the dancing. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

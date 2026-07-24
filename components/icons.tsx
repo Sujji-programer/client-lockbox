@@ -1,0 +1,43 @@
+/**
+ * Project-specific icon wrappers.
+ *
+ * Re-exports lightweight lucide-react icons under stable names so the few
+ * bespoke glyphs (the CiteFlow logo) can live next to the standard
+ * set and be tree-shaken identically.
+ */
+export {
+  InboxIcon as LockboxLogoIcon,
+  LogOut as LogOutIcon,
+  User as UserIcon,
+  Sparkles as SparklesIcon,
+  UploadCloud as UploadCloudIcon,
+  FileText as FileTextIcon,
+  Image as ImageIcon,
+  CheckCircle2 as CheckCircle2Icon,
+  Copy as CopyIcon,
+  Loader2 as Loader2Icon,
+  Wallet as WalletIcon,
+  Users as UsersIcon,
+  Clock as ClockIcon,
+  X as XIcon,
+  Trash2 as Trash2Icon,
+  Plus as PlusIcon,
+  Receipt as ReceiptIcon,
+  ShieldCheck as ShieldCheckIcon,
+  ChevronsUpDown as SearchInsightsIcon,
+  ChevronDown as ChevronDownIcon,
+  MousePointerClick as MousePointerClickIcon,
+  Zap as ZapIcon,
+  MessageCircle as MessageCircleIcon,
+  Send as SendIcon,
+  Calendar as CalendarIcon,
+  Globe as GlobeIcon,
+  BadgeCheck as BadgeCheckIcon,
+  CheckCheck as CheckCheckIcon,
+  Signature as SignatureIcon,
+  LoaderCircle as LoaderCircleIcon,
+  Lock as LockIcon,
+  AlertCircle as AlertCircleIcon,
+  RotateCcw as RotateCcwIcon,
+  Download as DownloadIcon,
+} from "lucide-react";
