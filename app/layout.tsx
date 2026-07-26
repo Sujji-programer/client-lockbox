@@ -9,9 +9,9 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "ClientLockbox — Send invoices, get paid, all in 60 seconds",
+  title: "CiteFlow — Never Get Ghosted on a Final Video Payment Again",
   description:
-    "ClientLockbox is the fastest, most beautiful way for freelancers to send a secure payment link, accept Stripe Connect, and get paid. Free forever — only a transparent 5% fee, capped at $30/month.",
+    "CiteFlow protects freelance video editors and motion designers with watermarked streaming previews and payment-locked 4K deliverable unlocks. Start free — 0% fees on Pro.",
 };
 
 const inter = Inter({
@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="bg-background">
       <body className={`${inter.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"

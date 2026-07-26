@@ -3,100 +3,91 @@
 @tailwind utilities;
 
 /*
- * ClientLockbox — premium design tokens.
- * Light  = elegant off-white / warm gray.
- * Dark   = deep slate / charcoal with indigo accent.
- * Typography: Inter, with system fallbacks for offline / prefont.
+ * CiteFlow — design tokens.
+ * Deep slate/black base (#090D16) with cyan + violet accent system.
+ * Typography: Inter. Marketing landing defaults to forced-dark.
  */
 
 @layer base {
   :root {
-    /* surfaces */
-    --background:        210 40% 99%;
-    --foreground:        222 47% 11%;
+    /* ── Base surfaces (light fallback) ── */
+    --background:         222 47% 5%;        /* #090D16 deep slate */
+    --foreground:         210 40% 96%;
 
-    --card:              0 0% 100%;
-    --card-foreground:   222 47% 11%;
-    --card-elevated:     210 40% 98%;
+    --card:               222 42% 8%;
+    --card-foreground:    210 40% 96%;
+    --card-elevated:      222 42% 11%;
 
-    --popover:           0 0% 100%;
-    --popover-foreground:222 47% 11%;
+    --popover:            222 42% 7%;
+    --popover-foreground: 210 40% 96%;
 
-    --primary:           243 75% 59%;      /* indigo-500 family */
-    --primary-foreground:0 0% 100%;
+    /* Cyan primary */
+    --primary:            187 100% 42%;      /* #00D4DC — cyan-500 family */
+    --primary-foreground: 222 47% 5%;
 
-    --secondary:         222 18% 96%;
-    --secondary-foreground:222 30% 20%;
+    /* Violet secondary accent */
+    --secondary:          271 81% 60%;       /* violet-500 family */
+    --secondary-foreground: 210 40% 96%;
 
-    --muted:             210 20% 96%;
-    --muted-foreground:  215 16% 47%;      /* elegant slate gray */
+    --muted:              222 30% 14%;
+    --muted-foreground:   215 19% 55%;
 
-    --accent:            222 18% 94%;
-    --accent-foreground: 222 30% 20%;
+    --accent:             222 30% 16%;
+    --accent-foreground:  210 40% 96%;
 
-    --destructive:       0 84% 60%;
+    --destructive:        0 70% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --success:           152 60% 42%;
-    --success-foreground: 0 0% 100%;
+    --success:            152 55% 50%;
+    --success-foreground: 222 47% 5%;
 
-    --warning:           38 92% 50%;
-    --warning-foreground: 30 50% 12%;
+    --warning:            38 92% 55%;
+    --warning-foreground: 30 50% 8%;
 
-    --border:            220 18% 91%;
-    --input:             220 18% 90%;
-    --ring:              243 75% 59%;
+    --border:             222 30% 14%;
+    --input:              222 30% 16%;
+    --ring:               187 100% 42%;
 
-    --chart-1: 243 75% 59%;
-    --chart-2: 152 60% 42%;
-    --chart-3: 217 91% 60%;
-    --chart-4: 38 92% 50%;
-    --chart-5: 280 65% 60%;
+    --chart-1: 187 100% 42%;   /* cyan */
+    --chart-2: 271 81% 60%;    /* violet */
+    --chart-3: 217 91% 60%;    /* blue */
+    --chart-4: 38 92% 50%;     /* amber */
+    --chart-5: 152 55% 50%;    /* green */
 
     --radius: 0.75rem;
 
-    /* Subtle backdrop glow (used by marketing + dashboard header) */
-    --glow-from: 243 75% 59%;
+    --glow-cyan:   187 100% 42%;
+    --glow-violet: 271 81% 60%;
+    --glow-from:   187 100% 42%;
   }
 
   .dark {
-    /* surfaces — deep slate/charcoal */
-    --background:        222 47% 7%;
-    --foreground:        210 40% 98%;
-
-    --card:              222 42% 10%;
-    --card-foreground:   210 40% 98%;
-    --card-elevated:     222 42% 13%;
-
-    --popover:           222 42% 9%;
-    --popover-foreground:210 40% 98%;
-
-    --primary:           245 80% 67%;
-    --primary-foreground:222 47% 8%;
-
-    --secondary:         222 30% 16%;
-    --secondary-foreground:210 40% 96%;
-
-    --muted:             222 30% 16%;
-    --muted-foreground:  215 19% 65%;
-
-    --accent:            222 30% 18%;
-    --accent-foreground: 210 40% 96%;
-
-    --destructive:       0 70% 50%;
-    --destructive-foreground:0 0% 100%;
-
-    --success:           152 55% 50%;
-    --success-foreground:222 47% 8%;
-
-    --warning:           38 92% 55%;
+    /* identical to :root — the landing page is dark-only */
+    --background:         222 47% 5%;
+    --foreground:         210 40% 96%;
+    --card:               222 42% 8%;
+    --card-foreground:    210 40% 96%;
+    --card-elevated:      222 42% 11%;
+    --popover:            222 42% 7%;
+    --popover-foreground: 210 40% 96%;
+    --primary:            187 100% 42%;
+    --primary-foreground: 222 47% 5%;
+    --secondary:          271 81% 60%;
+    --secondary-foreground: 210 40% 96%;
+    --muted:              222 30% 14%;
+    --muted-foreground:   215 19% 55%;
+    --accent:             222 30% 16%;
+    --accent-foreground:  210 40% 96%;
+    --destructive:        0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --success:            152 55% 50%;
+    --success-foreground: 222 47% 5%;
+    --warning:            38 92% 55%;
     --warning-foreground: 30 50% 8%;
-
-    --border:            222 30% 18%;
-    --input:             222 30% 20%;
-    --ring:              245 80% 67%;
-
-    --glow-from: 245 80% 60%;
+    --border:             222 30% 14%;
+    --input:              222 30% 16%;
+    --ring:               187 100% 42%;
+    --glow-from:          187 100% 42%;
   }
 }
 
