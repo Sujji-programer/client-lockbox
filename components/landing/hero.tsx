@@ -49,7 +49,7 @@ export function LandingHero() {
 
       {/* Social proof */}
       <p className="mt-6 text-xs text-slate-500">
-        No credit card required · Cancel anytime · SOC 2 compliant Stripe escrow
+        No credit card required · Cancel anytime · Razorpay Escrow secured
       </p>
 
       {/* Video preview mockup */}
@@ -176,8 +176,8 @@ export function LandingHero() {
             <span className="text-sm">💸</span>
           </div>
           <div>
-            <p className="text-xs font-semibold text-white">+$3,200 paid out</p>
-            <p className="text-[11px] text-slate-400">via Stripe Connect</p>
+            <p className="text-xs font-semibold text-white">+₹2,64,000 paid out</p>
+            <p className="text-[11px] text-slate-400">via Razorpay Escrow</p>
           </div>
         </div>
       </div>

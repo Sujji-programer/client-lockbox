@@ -6,15 +6,8 @@ import { DashboardNav } from "@/components/dashboard-nav";
 export const dynamic = "force-dynamic";
 
 /**
- * Server-side auth guard for the freelancer dashboard.
- *
- * - Reads the Supabase session; if there's no authenticated user we bounce to
- *   the boilerplate's `/auth/login` route.
- * - Pulls the freelancer's `plan_type` from the `profiles` table and exposes
- *   it to all dashboard children via a React context (see DashboardProvider).
- *
- * Created with `force-dynamic` so the session is always re-evaluated per
- * request and we never serve a stale, logged-out shell from the cache.
+ * Server-side auth guard for the CiteFlow editor dashboard.
+ * Reads the Supabase session and bounces unauthenticated users to /auth.
  */
 export default async function DashboardLayout({
   children,
@@ -28,29 +21,25 @@ export default async function DashboardLayout({
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect("/auth/login");
+    redirect("/auth");
   }
 
-  // Load the freelancer's profile so children know the plan tier + Stripe status.
   const { data: profile } = await supabase
     .from("profiles")
-    .select("id, email, subscription_tier, stripe_account_id, stripe_account_status")
+    .select("id, email, subscription_tier")
     .eq("id", user.id)
     .single();
 
-  const stripeStatus = (profile?.stripe_account_status ?? null) as
-    | "PENDING" | "RESTRICTED" | "ENABLED" | null;
+  const planType = profile?.subscription_tier === "PRO" ? "PRO" : "FREE";
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100/40 dark:from-slate-950 dark:to-slate-900">
+    <div style={{ background: "#090D16", minHeight: "100vh" }}>
       <DashboardNav
         email={profile?.email ?? user.email ?? ""}
-        planType={(profile?.subscription_tier === "PRO" ? "PRO" : "FREE")}
+        planType={planType}
         userId={user.id}
-        stripeAccountId={profile?.stripe_account_id ?? null}
-        stripeAccountStatus={stripeStatus ?? (profile?.stripe_account_id ? "PENDING" : "NONE")}
       />
-      <main className="mx-auto w-full max-w-6xl px-5 py-10 sm:px-8">
+      <main>
         {children}
       </main>
     </div>

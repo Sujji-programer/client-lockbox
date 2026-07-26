@@ -14,7 +14,7 @@ const TIERS = [
       "Watermarked streaming preview player",
       "Payment-locked 4K file delivery",
       "Cloudflare R2 storage vault",
-      "Stripe Connect payouts",
+      "Razorpay Bank Payouts",
       "AI Timeline-to-Marker Export (.XML / .EDL)",
       "Automated invoice reminders",
       "10% platform transaction fee",
@@ -34,7 +34,7 @@ const TIERS = [
       "0% platform transaction fee — keep 100%",
       "Custom branding & white-label portal",
       "Unlimited Cloudflare R2 uploads",
-      "Priority Stripe Connect payouts",
+      "Priority Razorpay Instant Payouts",
       "Advanced AI marker export templates",
       "Client analytics & view tracking",
       "Priority support & onboarding",
@@ -126,7 +126,7 @@ export function LandingPricing() {
               {tier.accent && (
                 <div className="mt-4 rounded-lg border border-cyan-400/20 bg-cyan-400/[0.07] px-3.5 py-2.5">
                   <p className="text-xs text-cyan-300/80">
-                    <span className="font-semibold text-cyan-300">0% platform fee</span> — only standard Stripe processing (~2.9% + 30¢) passed through.
+                    <span className="font-semibold text-cyan-300">0% platform fee</span> — only standard Razorpay processing (~2% + GST) passed through.
                   </p>
                 </div>
               )}
@@ -163,7 +163,7 @@ export function LandingPricing() {
 
       {/* Bottom note */}
       <p className="mt-8 text-center text-xs text-slate-600">
-        All plans include Cloudflare R2 storage, Stripe Connect escrow, and automated invoice reminders.
+        All plans include Cloudflare R2 storage, Razorpay Escrow, and automated invoice reminders.
         No hidden fees. No surprises.
       </p>
     </section>

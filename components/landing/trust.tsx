@@ -3,16 +3,16 @@ import { ShieldCheck, BadgeCheck, Lock, Zap, Globe } from "lucide-react";
 const TRUST_BADGES = [
   {
     icon: ShieldCheck,
-    title: "Funds held safely by Stripe",
+    title: "Funds held safely by Razorpay",
     description:
-      "All client payments are held in Stripe's regulated escrow infrastructure — the same stack trusted by Amazon, Shopify, and Lyft.",
+      "All client payments are held in Razorpay's regulated escrow infrastructure — RBI-compliant and trusted by 10M+ Indian businesses.",
     accent: "cyan",
   },
   {
     icon: BadgeCheck,
     title: "First Payment Protection Guarantee",
     description:
-      "If a client disputes their first payment on CiteFlow without cause, we cover 100% of the lost invoice — up to $500.",
+      "If a client disputes their first payment on CiteFlow without cause, we cover 100% of the lost invoice — up to ₹40,000.",
     accent: "violet",
   },
   {
@@ -26,9 +26,9 @@ const TRUST_BADGES = [
 
 const STATS = [
   { value: "0%", label: "Egress fees on R2 storage" },
-  { value: "$0", label: "To start protecting invoices" },
+  { value: "₹0", label: "To start protecting invoices" },
   { value: "100%", label: "Earnings kept on Pro tier" },
-  { value: "<2 min", label: "Avg. Stripe Connect payout" },
+  { value: "<2 min", label: "Avg. Razorpay Bank Payout" },
 ] as const;
 
 const accentMap = {
@@ -108,10 +108,10 @@ export function LandingTrust() {
           Powered by infrastructure you trust
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-8">
-          {/* Stripe */}
+          {/* Razorpay */}
           <div className="flex items-center gap-2 opacity-40 transition hover:opacity-70">
             <Zap className="h-4 w-4 text-slate-300" />
-            <span className="text-sm font-semibold text-slate-300">Stripe</span>
+            <span className="text-sm font-semibold text-slate-300">Razorpay</span>
           </div>
           {/* Cloudflare */}
           <div className="flex items-center gap-2 opacity-40 transition hover:opacity-70">
